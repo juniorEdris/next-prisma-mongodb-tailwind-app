@@ -5,7 +5,7 @@ import { AiFillGithub } from "react-icons/ai";
 // import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
-import { toast } from "react-hot-toast";
+
 import { useForm } from "react-hook-form";
 
 import Modal from "./Modal";
@@ -15,6 +15,7 @@ import Input from "../Inputs/Input";
 
 import useRegisterModal from "@/hooks/useRegisterModal";
 import useLoginModal from "@/hooks/useLoginModal";
+import { toast } from "react-hot-toast";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
