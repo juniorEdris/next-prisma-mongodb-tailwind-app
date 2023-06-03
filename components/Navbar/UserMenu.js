@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-// import { signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 import MenuItem from "./MenuItem";
@@ -113,7 +113,7 @@ const UserMenu = ({ currentUser }) => {
                 />
                 <MenuItem label="Airbnb your home" onClick={rentModal.onOpen} />
                 <hr />
-                <MenuItem label="Logout" onClick={() => {}} /> {/*signOut()*/}
+                <MenuItem label="Logout" onClick={() => signOut()} />
               </>
             ) : (
               <>

@@ -5,7 +5,7 @@ import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
 
-const Navbar = () => {
+const Navbar = ({ currentUser = null }) => {
   return (
     <section className="fixed w-full bg-white z-10 shadow-sm">
       <div className="py-4 border-b-[1px]">
@@ -21,7 +21,7 @@ const Navbar = () => {
           >
             <Logo />
             <Search />
-            <UserMenu currentUser={false} /> {/* ={currentUser}*/}
+            <UserMenu currentUser={currentUser} />
           </div>
         </Container>
       </div>
