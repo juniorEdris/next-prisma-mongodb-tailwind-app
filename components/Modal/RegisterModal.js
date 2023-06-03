@@ -5,7 +5,7 @@ import { AiFillGithub } from "react-icons/ai";
 // import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
-// import { toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 
 import Modal from "./Modal";
@@ -39,12 +39,13 @@ const RegisterModal = () => {
     axios
       .post("/api/register", data)
       .then(() => {
-        // toast.success("Registered!");
+        toast.success("Registered!");
         registerModal.onClose();
         loginModal.onOpen();
       })
       .catch((error) => {
-        // toast.error(error);
+        toast.error(error);
+        toast.error("something nwent wrong!");
       })
       .finally(() => {
         setIsLoading(false);
