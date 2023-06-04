@@ -30,7 +30,7 @@ export default async function RootLayout({ children }) {
             <LoginModal />
           </ClientOnly>
         </div>
-        {children}
+        <section className="py-28">{children}</section>
       </body>
     </html>
   );
