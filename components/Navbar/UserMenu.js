@@ -37,7 +37,7 @@ const UserMenu = ({ currentUser }) => {
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
-          onClick={() => onRent}
+          onClick={() => onRent()}
           className="
             hidden
             md:block
