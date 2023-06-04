@@ -1,7 +1,21 @@
+import getCurrentUser from "@/actions/getCurrentUser";
+import getListings from "@/actions/getListings";
 import ClientOnly from "@/components/ClientOnly";
 import Container from "@/components/Container";
+import EmptyState from "@/components/EmptyState";
+import ListingCard from "@/components/listings/ListingCard";
 
-export default function Home() {
+export default async function Home({ searchParams }) {
+  const listings = await getListings(searchParams);
+  const currentUser = await getCurrentUser();
+
+  if (listings?.length === 0) {
+    return (
+      <ClientOnly>
+        <EmptyState showReset />
+      </ClientOnly>
+    );
+  }
   return (
     <ClientOnly>
       <Container>
@@ -18,14 +32,13 @@ export default function Home() {
             gap-8
           "
         >
-          My listings will show here
-          {/* {listings.map((listing: any) => (
+          {listings.map((listing) => (
             <ListingCard
               currentUser={currentUser}
               key={listing.id}
               data={listing}
             />
-          ))} */}
+          ))}
         </section>
       </Container>
     </ClientOnly>
