@@ -35,7 +35,6 @@ const LoginModal = () => {
 
   const onSubmit = (data) => {
     setIsLoading(true);
-    console.log({ data });
     setIsLoading(false);
 
     // signIn("credentials", {

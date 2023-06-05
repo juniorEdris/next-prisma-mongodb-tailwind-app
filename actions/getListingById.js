@@ -13,7 +13,6 @@ export default async function getListingById(params) {
       },
     });
 
-    console.log({ listingId, listing });
     if (!listing) {
       return null;
     }

@@ -116,7 +116,7 @@ const RentModal = () => {
     }
 
     return "Next";
-  }, [step]);
+  }, [step, STEPS.PRICE]);
 
   const secondaryActionLabel = useMemo(() => {
     if (step === STEPS.CATEGORY) {
@@ -124,7 +124,7 @@ const RentModal = () => {
     }
 
     return "Back";
-  }, [step]);
+  }, [step, STEPS.CATEGORY]);
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
