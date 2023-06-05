@@ -3,8 +3,8 @@ import prisma from "@/libs/prismadb";
 export default async function getListingById(params) {
   try {
     const { listingId } = params;
-    console.log({ listingId, prisma });
-    const listing = await prisma?.listing?.findUnique({
+
+    const listing = await prisma.listing.findUnique({
       where: {
         id: listingId,
       },
@@ -13,6 +13,7 @@ export default async function getListingById(params) {
       },
     });
 
+    console.log({ listingId, listing });
     if (!listing) {
       return null;
     }
