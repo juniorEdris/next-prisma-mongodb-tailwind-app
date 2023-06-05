@@ -1,4 +1,4 @@
-## next-prisma-mongodb-tailwind-app
+## next-prisma-mongodb-tailwind-app / trip-management-system
 
 # New
     > Next Auth
