@@ -1,17 +1,16 @@
 "use client";
 
+import useCountries from "@/hooks/useCountries";
+import useSearchModal from "@/hooks/useSearchModal";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { BiSearch } from "react-icons/bi";
-// import { differenceInDays } from "date-fns";
-
-// import useSearchModal from "@/app/hooks/useSearchModal";
-// import useCountries from "@/app/hooks/useCountries";
+import { differenceInDays } from "date-fns";
 
 const Search = () => {
-  //   const searchModal = useSearchModal();
+  const searchModal = useSearchModal();
   const params = useSearchParams();
-  //   const { getByValue } = useCountries();
+  const { getByValue } = useCountries();
 
   const locationValue = params?.get("locationValue");
   const startDate = params?.get("startDate");
@@ -20,17 +19,17 @@ const Search = () => {
 
   const locationLabel = useMemo(() => {
     if (locationValue) {
-      return "label"; // getByValue(locationValue)?.label;
+      return getByValue(locationValue)?.label;
     }
 
     return "Anywhere";
-  }, [locationValue]); // , getByValue
+  }, [locationValue, getByValue]);
 
   const durationLabel = useMemo(() => {
     if (startDate && endDate) {
       const start = new Date(startDate);
       const end = new Date(endDate);
-      let diff = 0; // differenceInDays(end, start);
+      let diff = differenceInDays(end, start);
 
       if (diff === 0) {
         diff = 1;
@@ -52,7 +51,7 @@ const Search = () => {
 
   return (
     <div
-      onClick={() => {}} // searchModal.onOpen
+      onClick={() => searchModal.onOpen()}
       className="
         border-[1px] 
         w-full 

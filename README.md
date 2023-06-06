@@ -5,6 +5,7 @@
     > react-hook-form
     > Prisma & Prisma Client
     > next-cloudinary
+    > react-spinners
 
 ## Learn More
 
