@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build prisma generate",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -36,6 +36,7 @@
     "zustand": "^4.3.8"
   },
   "devDependencies": {
+    "eslint-config-prettier": "^8.8.0",
     "prisma": "^4.15.0"
   }
 }
