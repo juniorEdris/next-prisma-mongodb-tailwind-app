@@ -2,61 +2,61 @@ import prisma from "@/libs/prismadb";
 
 export default async function getListings(params) {
   try {
-    const {
-      userId = "",
-      roomCount,
-      guestCount,
-      bathroomCount,
-      locationValue,
-      startDate,
-      endDate,
-      category,
-    } = params;
+    // const {
+    //   userId = "",
+    //   roomCount,
+    //   guestCount,
+    //   bathroomCount,
+    //   locationValue,
+    //   startDate,
+    //   endDate,
+    //   category,
+    // } = params;
 
     let query = {};
 
-    if (userId) {
-      query.userId = userId;
+    if (params?.userId) {
+      query.userId = params?.userId;
     }
 
-    if (category) {
-      query.category = category;
+    if (params?.category) {
+      query.category = params?.category;
     }
 
-    if (roomCount) {
+    if (params?.roomCount) {
       query.roomCount = {
-        gte: +roomCount,
+        gte: +params?.roomCount,
       };
     }
 
-    if (guestCount) {
+    if (params?.guestCount) {
       query.guestCount = {
-        gte: +guestCount,
+        gte: +params?.guestCount,
       };
     }
 
-    if (bathroomCount) {
+    if (params?.bathroomCount) {
       query.bathroomCount = {
-        gte: +bathroomCount,
+        gte: +params?.bathroomCount,
       };
     }
 
-    if (locationValue) {
-      query.locationValue = locationValue;
+    if (params?.locationValue) {
+      query.locationValue = params?.locationValue;
     }
 
-    if (startDate && endDate) {
+    if (params?.startDate && params?.endDate) {
       query.NOT = {
         reservations: {
           some: {
             OR: [
               {
-                endDate: { gte: startDate },
-                startDate: { lte: startDate },
+                endDate: { gte: params?.startDate },
+                startDate: { lte: params?.startDate },
               },
               {
-                startDate: { lte: endDate },
-                endDate: { gte: endDate },
+                startDate: { lte: params?.endDate },
+                endDate: { gte: params?.endDate },
               },
             ],
           },
