@@ -17,6 +17,7 @@
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "leaflet": "^1.9.4",
+    "lodash": "^4.17.21",
     "next": "^13.4.3",
     "next-auth": "^4.22.1",
     "next-cloudinary": "^4.12.0",

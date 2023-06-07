@@ -4,9 +4,10 @@ import ClientOnly from "@/components/ClientOnly";
 import Container from "@/components/Container";
 import EmptyState from "@/components/EmptyState";
 import ListingCard from "@/components/listings/ListingCard";
+import { size } from "lodash";
 
 export default async function Home({ searchParams }) {
-  const listings = await getListings(searchParams);
+  const listings = await getListings(size(searchParams) ? searchParams : "");
   const currentUser = await getCurrentUser();
 
   if (listings?.length === 0) {
